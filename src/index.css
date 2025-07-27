@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  body {
+    @apply transition-colors duration-300;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500;
+  }
+}
+
+/* Custom components */
+@layer components {
+  .btn-primary {
+    @apply px-6 py-2.5 bg-indigo-600 text-white font-medium rounded-lg shadow-md hover:bg-indigo-700 transition-all;
+  }
+  
+  .option-correct {
+    @apply border-green-500 bg-green-100 dark:bg-green-900/30 !important;
+  }
+  
+  .option-incorrect {
+    @apply border-red-500 bg-red-100 dark:bg-red-900/30 !important;
+  }
+  
+  .card {
+    @apply overflow-hidden bg-white shadow-xl dark:bg-gray-800 rounded-2xl;
+  }
+  
+  .glow-effect {
+    @apply relative overflow-hidden;
+    
+    &:after {
+      @apply content-[''] absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent;
+      animation: shine 2s infinite;
+    }
+  }
+}
+
+@keyframes shine {
+  100% {
+    left: 100%;
+  }
+}
+
+/* Animation classes */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.pulse {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
